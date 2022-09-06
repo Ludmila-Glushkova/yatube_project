@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>Последние обновления на сайте</title>
+  </head>
+  <body>
+    <header>
+      {% include 'includes/header.html' %}
+    </header>
+    {% block content %}
+      <div class="container py-5">
+        {% for post in posts %}
+          <ul>
+            <li>Автор: {{ post.author.get_full_name }}</li>
+            <li>Дата публикации: {{ post.pub_date|date:"d E Y" }}</li>
+          </ul>
+          <p>{{ post.text }}</p>
+          {% if post.group %}
+            <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
+          {% endif %}
+          {% if not forloop.last %}<hr>{% endif %}
+        {% endfor %}
+      </div>
+    {% endblock %}
+    <h1>{{ text }}</h1>
+  </body>
+</html>
