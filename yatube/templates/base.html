@@ -1,31 +1,32 @@
 <!DOCTYPE html>
+<html lang="ru">
 {% load static %}
-<html>
-  <head>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+  <title>
+    {% block title %}
+      соц сеть
+    {% endblock %}
+  </title>
+
+</head>
+
+<body>
+  <div class="container">
     <header>
       {% include 'includes/header.html' %}
     </header>
+    <main>
+      {% block content %}
+        нет контента
+      {% endblock %}
+    </main>
 
-       {% block content %}
-      {% for post in posts %}
-  <ul>
-    <li>
-      Автор: {{ post.author.get_full_name }}
-    </li>
-    <li>
-      Дата публикации: {{ post.pub_date|date:"d E Y" }}
-    </li>
-  </ul>
-  <p>{{ post.text }}</p>
-  <a href="">все записи группы</a>
-  {% if not forloop.last %}<hr>{% endif %}
-{% endfor %}
- {% endblock %}
+  </div>
 
-    <h1>{{ text }}</h1>
-     <a href="">ссылка на вторую</a>
-  </body>
+</body>
+
 </html>
