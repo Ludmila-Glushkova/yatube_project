@@ -1,7 +1,33 @@
 {% load static %}
-
-<ul>
-  <li>Автор: {{ post.author.get_full_name }}</li>
-  <li>Дата публикации: {{ post.pub_date|date:"d E Y" }}</li>
-</ul>
-<p>{{ post.text }}</p>
+{% load thumbnail %}
+<article>
+    <ul>
+        {% if author %}
+        <li>Автор: <a href="{% url 'posts:profile' post.author.username %}">{{ post.author.get_full_name }}</a></li>
+        {% endif %}
+        <li>Дата публикации: {{ post.pub_date|date:"d E Y" }}</li>
+    </ul>
+    {% thumbnail post.image "960x339" crop="center" upscale=True as im %}
+    <img class="card-img my-2" src="{{ im.url }}">
+    {% endthumbnail %}
+    <p>{{ post.text }}</p>
+    <ul>
+        {% if post_detail %}
+        <li>
+            <a href="{% url 'posts:post_detail' post.pk %}">подробная информация</a>
+        </li>
+        {% endif %}
+        {% if group_list %}
+        <li class="breadcrumb-item active">
+            {% if post.group %}
+            <a href="{% url 'posts:group_list' post.group.slug %}">все записи группы:
+                {{ post.group.title}}
+                {% endif %}
+            </a>
+        </li>
+        {% endif %}
+    </ul>
+    {% if not forloop.last %}
+    <hr>
+    {% endif %}
+</article>

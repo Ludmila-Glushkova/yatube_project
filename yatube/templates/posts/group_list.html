@@ -3,19 +3,17 @@
 {% block title %}
   Записи сообщества {{ group.title }}
 {% endblock %}
+{% block header %}
+  <h1>{{ group.title }}</h1>
+{% endblock %}
 
 {% block content %}
-  <div class="container py-5">
-
-    <h2>Записи сообщества: {{ group.title }}</h2>
+    
     <p> {{ group.description }} </p>
-    {% for post in posts %}
-      <article>
-        {% include 'includes/post.html' %}
-      </article>
-
-      {% if not forloop.last %}<hr>{% endif %}
+    {% for post in page_obj %}
+    {% include 'includes/post.html' with post_detail=True author=True %}
     {% endfor %}
 
-  </div>
+    {% include 'posts/includes/paginator.html' %}
+
 {% endblock %}

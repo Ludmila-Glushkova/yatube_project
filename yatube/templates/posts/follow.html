@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Подписки
+{% endblock %}
+
+{% block content %}
+{% load cache %}
+{% cache 20 index_page %}
+{% include 'posts/includes/switcher.html' %}
+
+    <h3>Записи пользователей, на которых Вы подписаны</h3>
+
+    {% for post in page_obj %}
+    {% include 'includes/post.html' with post_detail=True author=True group_list=True %}
+    {% endfor %}
+
+
+    {% include 'posts/includes/paginator.html' %}
+
+{% endcache %}
+{% endblock %}

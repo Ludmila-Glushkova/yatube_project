@@ -4,11 +4,19 @@
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="icon" href="{% static 'img/fav/fav.ico'%}}" type="image">
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/fav/apple-touch-icon.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/fav/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/fav/favicon-16x16.png' %}">
+  <meta name="msapplication-TileColor" content="#000">
+  <meta name="theme-color" content="#ffffff">
 
   <title>
     {% block title %}
-      соц сеть
+      Yatube
     {% endblock %}
   </title>
 
@@ -20,10 +28,18 @@
       {% include 'includes/header.html' %}
     </header>
     <main>
+      {% block header %}
+
+      {% endblock %}
       {% block content %}
+      <div class="container py-5">
         нет контента
+      </div>
       {% endblock %}
     </main>
+    <footer class="border-top text-center py-3">
+      {% include 'includes/footer.html' %}
+    </footer>
 
   </div>
 

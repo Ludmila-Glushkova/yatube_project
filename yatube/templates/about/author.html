@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}
+Об авторе
+{% endblock %}
+{% load static %}
+{% block content%}
+
+
+<div class="container">
+    <div class="row centered mt mb">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2>Немного обо мне</h2>
+            <p>Обо мне не интересно, но я еще про собаку могу рассказать!</p>
+        </div>
+        <div id="aboutwrap">
+            <div class="container">
+                <figure>
+                    <img src="{% static 'img/me.jpeg' %}" width="700" height="525" alt="Альтернативный текст">
+                    <figcaption>Прошу оценить мой подвиг, ведь я так не люблю фотографироваться</figcaption>
+                </figure>
+                <p></p>
+                <figure>
+
+                    <img src="{% static 'img/sonya.jpg' %}" width="500" height="498" alt="Альтернативный текст">
+                    <figcaption>Лучшая собака на планете</figcaption>
+                </figure>
+            </div>
+        </div>
+        <! --/aboutwrap -->
+
+        <div class="container">
+            <div class="row centered mt mb">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h2>Глушкова Людмила</h2>
+                    <p>Наверно я позже придумаю, что рассказать о себе...</p>
+                    <p>А теперь о главном, мою собаку зовут Соня, она породы ши-тцу и ей уже 7 лет. Она безумно добрая и
+                        общительная, хотя взгляд у нее часто такой, будто она познала всю печаль этого мира. Желающим
+                        могу прислать 100500 ее фотографий:)
+                    </p>
+
+                </div>
+
+            </div>
+            <! --/row -->
+        </div>
+    </div>
+</div>
+<! --/container -->
+{% endblock %}

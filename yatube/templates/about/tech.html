@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block title %}
+Технологии
+{% endblock %}
+{% load static %}
+{% block content%}
+
+
+<div class="container">
+    <div class="row centered mt mb">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2>Вот что я умею</h2>
+            <aside class="col-12 col-md-3">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        Python
+                    </li>
+                    <li class="list-group-item">
+                        Django
+                    </li>
+                </ul>
+            </aside>
+            <article class="col-12 col-md-9">
+                <h4>Тут написано что-то о технологиях</h4>
+                <p>
+                    Django (Джанго, ['dʒæŋɡoʊ]) — свободный фреймворк для веб-приложений на языке Python,
+                    использующий шаблон проектирования MVC. Проект поддерживается организацией Django Software
+                    Foundation.
+                </p>
+                <p>
+                    Сайт на Django строится из одного или нескольких приложений, которые рекомендуется делать
+                    отчуждаемыми и подключаемыми. Это одно из существенных архитектурных отличий этого
+                    фреймворка от некоторых других (например, Ruby on Rails). Один из основных принципов
+                    фреймворка — DRY (англ. Don't repeat yourself).
+                </p>
+                <p>
+                    Также, в отличие от других фреймворков, обработчики URL в Django конфигурируются явно при
+                    помощи регулярных выражений.
+                </p>
+                <p>
+                    Для работы с базой данных Django использует собственный ORM, в котором модель данных
+                    описывается классами Python, и по ней генерируется схема базы данных.
+                </p>
+                <figure>
+                    <img src="{% static 'img/work.jpg' %}" width="450" height="225"
+                         alt="Альтернативный текст">
+                    <figcaption>Некая иллюстрация в тему технологий</figcaption>
+                </figure>
+            </article>
+
+        </div>
+
+    </div>
+
+    <! --/row -->
+</div>
+{% endblock %}
