@@ -26,12 +26,11 @@ SECRET_KEY = '3sn8w#1@#!dj@y)o5+)ji)bd5eaj&wyvlyt=gye!2h4#d!%$e9'
 DEBUG = False
 
 ALLOWED_HOSTS = [
+    '130.193.50.87',
     'localhost',
     '127.0.0.1',
     '[::1]',
     'testserver',
-    '130.193.50.87:8000',
-    '130.193.50.87',
 ]
 
 
